@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PEC02_P7</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body ng-app="App">
+<div ng-controller="myCtrl as ctrl">
+    <h1>Cuestionario</h1>
+
+    <div ng-show="!ctrl.cargado">
+        <form>
+            <input type="text" ng-model="ctrl.cuestionario">
+            <input type="submit" ng-click="ctrl.cargarCuestionario()" value="Cargar" />
+        </form>
+    </div>
+
+    <div ng-show="ctrl.cargado && !ctrl.terminado">
+        <p>{{ctrl.datos[ctrl.n].enunciado}}</p>
+        <form name="myForm">
+            <label>
+                <input type="radio"  ng-model="ctrl.respuesta" value="VERDADERO">
+                VERDADERO
+            </label><br/>
+            <label>
+                <input type="radio"  ng-model="ctrl.respuesta" value="FALSO">
+                FALSO
+            </label><br/>
+        </form>
+
+
+    <div ng-show="ctrl.aviso" class="alert alert-danger">
+        <strong>Debes marcar una respuesta para continuar</strong>
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="ctrl.anterior()" ng-show="ctrl.n != 0">Anterior</button>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.siguiente()" ng-show="ctrl.n < ctrl.datos.length-1">Siguiente</button>
+    <button type="button" class="btn btn-success" ng-click="ctrl.terminar()" ng-show="ctrl.n == ctrl.datos.length-1">Terminar</button>
+
+    </div>
+
+    <br><br>
+
+    <div ng-show="ctrl.terminado" class="alert alert-info">
+        <strong>Puntuación: {{ctrl.puntuacion}} ({{ctrl.aciertos}}/{{ctrl.preguntas}})</strong>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="js/all.min.js"></script>
+</body>
+</html>

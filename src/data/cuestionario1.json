@@ -1,0 +1,15 @@
+{
+  "preguntas": [{
+    "enunciado": "Texto del enunciado de la primera pregunta.",
+    "respuesta": "VERDADERO"
+  }, {
+    "enunciado": "Texto del enunciado de la segunda pregunta.",
+    "respuesta": "FALSO"
+  }, {
+    "enunciado": "Texto del enunciado de la tercera pregunta.",
+    "respuesta": "VERDADERO"
+  }, {
+    "enunciado": "Texto del enunciado de la cuarta pregunta.",
+    "respuesta": "FALSO"
+  }]
+}
